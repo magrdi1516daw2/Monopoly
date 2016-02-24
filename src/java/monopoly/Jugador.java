@@ -12,7 +12,7 @@ public class Jugador {
 
     public Jugador() {
         diners = 30000;
-        //casella = 0;
+        casella = 0;
     }
 
     
@@ -42,8 +42,11 @@ public class Jugador {
         this.diners = diners;
     }
 
+    public int getCasella() {
+        return casella;
+    }
 
-    
+       
     @Override
     public String toString() {
         return "Jugador{" + "nom=" + nom + ", diners=" + diners + '}';
@@ -52,10 +55,10 @@ public class Jugador {
     
     
     public String tirarDau(){
-       
-       int num = (int) Math.ceil(Math.random() * 6);
+          int num = (int) Math.ceil(Math.random() * 6);
               casella += num;
               
+                      
     return "El jugador "+ nom +" ha tret un "+ num +".";
         
     }
@@ -64,5 +67,6 @@ public class Jugador {
     return "El jugador "+nom+" esta a la casella "+ casella+".";
             }
     
-    
+   /* cobrar(int preu){
+   }*/
 }
