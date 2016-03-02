@@ -13,7 +13,7 @@ public class Casella {
     private int id;
     private String nom;
     private int preu;
-    private Jugador propietari;
+    private String propietari;
 
     public Casella(int id, String nom, int preu) {
         this.id = id;
@@ -45,11 +45,11 @@ public class Casella {
         this.preu = preu;
     }
 
-    public Jugador getPropietari() {
+    public String getPropietari() {
         return propietari;
     }
 
-    public void setPropietari(Jugador propietari) {
+    public void setPropietari(String propietari) {
         this.propietari = propietari;
     }
 

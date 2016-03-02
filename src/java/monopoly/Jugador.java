@@ -9,6 +9,7 @@ public class Jugador {
     private String nom;
     private int diners;
     private int casella;
+    private boolean tirar;
 
     public Jugador() {
         diners = 30000;
