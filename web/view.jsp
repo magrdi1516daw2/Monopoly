@@ -83,7 +83,12 @@
         </tr>
         
         <tr>
-            <td> Columna lateral esquerra </td>
+            <td> Columna lateral esquerra </br>
+            <jsp:useBean id="jugador1" class="monopoly.Jugador"/>
+             <jsp:getProperty name="jugador1" property="nom" />
+             Hola ${jugador1.nom} !
+        
+            </td>
             
             <td>  
                 <table  id='tauler' border='1' >

@@ -20,7 +20,7 @@ public class Principal {
         
         Jugador jugador1 = new Jugador("Marta");
         Jugador jugador2 = new Jugador();
-        //jugador2.setNom("Claudia");
+        jugador2.setNom("Oriol");
         
         System.out.println(jugador1);
         System.out.println(jugador2);
