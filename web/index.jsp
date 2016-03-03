@@ -8,7 +8,7 @@
 </head>
 <body onload='preview();'>
     <%@ page errorPage="/error/errorPage.jsp"%>
-	<form action="GameController" method="post">
+	<form action="ProcessamentLogin" method="post">
 		<table>
 			<tr>
 				<td>Jugador:</td>
