@@ -95,13 +95,13 @@
                     <tr>
                         <td colspan='2' rowspan="2">PARKING</td>
                         <td class="hornom">Carrer vermell1</td>
-                        <td class="hornom"><img   src="Hsort.png" alt=""  ></td>
+                        <td class="hornom"><img   src="images/Hsort.png" alt=""  ></td>
                         <td class="hornom">Carrer vermell2</td>
                         <td class="hornom">Carrer vermell3</td>
-                        <td class="hornom"><img src="tren.png" alt=""  ></td> 
+                        <td class="hornom"><img src="images/tren.png" alt=""  ></td> 
                         <td class="hornom">Carrer Groc1</td>
                         <td class="hornom">Carrer Groc2</td>
-                        <td class="hornom"><img src="aigua.png" alt=""  ></td>
+                        <td class="hornom"><img src="images/aigua.png" alt=""  ></td>
                         <td class="hornom">Carrer Groc3</td>
                         <td colspan='2' rowspan="2">PRESÓ</td>
                     </tr>
@@ -150,7 +150,7 @@
                     </tr>
 
                     <tr>
-                        <td class="vernom"><img src="chest.jpg" alt=""  ></td>
+                        <td class="vernom"><img src="images/chest.jpg" alt=""  ></td>
                         <td class="vercolor">Impost</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -162,7 +162,7 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class="vercolor">Impost</td>
-                        <td class="vernom"><img src="chest.jpg" alt=""  ></td> 
+                        <td class="vernom"><img src="images/chest.jpg" alt=""  ></td> 
                     </tr>
 
                     <tr>
@@ -182,7 +182,7 @@
                     </tr>
 
                     <tr>
-                        <td class="vernom"><img  src="tren.png" alt=""  ></td>
+                        <td class="vernom"><img  src="images/tren.png" alt=""  ></td>
                         <td class="vercolor">Estació</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -194,7 +194,7 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class="vercolor">Estacio</td>
-                        <td class="vernom"><img  src="tren.png" alt=""  ></td>                
+                        <td class="vernom"><img  src="images/tren.png" alt=""  ></td>                
                     </tr>
 
                     <tr>
@@ -210,7 +210,7 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class="vercolor">Sort</td>
-                        <td class="vernom"><img  src="Vsort.png" alt=""  ></td>                
+                        <td class="vernom"><img  src="images/Vsort.png" alt=""  ></td>                
                     </tr>
 
                     <tr>
@@ -230,7 +230,7 @@
                     </tr>
 
                     <tr>
-                        <td class="vernom"><img src="bombeta.png" alt=""  >60€</td>
+                        <td class="vernom"><img src="images/bombeta.png" alt=""  >60€</td>
                         <td class="vercolor">Llum</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -242,7 +242,7 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class="vercolor">Impost de Luxe</td>
-                        <td class="vernom"><img src="impostos.png" alt=""  ></td>                
+                        <td class="vernom"><img src="images/impostos.png" alt=""  ></td>                
                     </tr>
 
                     <tr>
@@ -277,12 +277,12 @@
                     <tr>
                         <td class="hornom">Carrer cian3</td>
                         <td class="hornom">Carrer cian2</td>
-                        <td class="hornom"><img class="Himg" src="Hsort.png" alt=""  ></td>
+                        <td class="hornom"><img class="Himg" src="images/Hsort.png" alt=""  ></td>
                         <td class="hornom">Carrer cian1</td>
-                        <td class="hornom"><img class="Himg" src="tren.png" alt=""  ></td> 
-                        <td class="hornom"><img src="impostos.png" alt=""  ></td>
+                        <td class="hornom"><img class="Himg" src="images/tren.png" alt=""  ></td> 
+                        <td class="hornom"><img src="images/impostos.png" alt=""  ></td>
                         <td class="hornom">Carrer lila2</td>
-                        <td class="hornom"><img src="chest.jpg" alt=""  ></td>
+                        <td class="hornom"><img src="images/chest.jpg" alt=""  ></td>
                         <td class="hornom">Carrer lila2</td>
                     </tr>
                 </table> <!-- tancament de la taula que fomra el tauler-->
