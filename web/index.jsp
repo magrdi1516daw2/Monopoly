@@ -1,22 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Monopoly</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        <center>
-            <img src="images/Monopoly-logo.jpg" width="500" height="190"/>
-            </br>
-            <form action="Play">
-                ? <input type="text" name="numberOfPlayers" size="1"/>
-                <input type="submit" value="Play!"/>
-                <input type="hidden" name="newGame" value="true"/>
-            </form>
-            <p class="error">${message}</p>
-        </center>
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style/style.css" type="text/css">
+<script lang="JavaScript" type="text/javascript" src="js/scripts.js"></script>
+<title>Bienvenido al Monopoli</title>
+</head>
+<body onload='preview();'>
+    <%@ page errorPage="/error/errorPage.jsp"%>
+	<form action="GameController" method="post">
+		<table>
+			<tr>
+				<td>Jugador:</td>
+				<td><input type="text" name="nick" /></td>
+			</tr>
+			<tr>
+				<td>Avatar:</td>
+				<td><select id="player" onchange='preview();' name="avatar">
+						<option class="p1">1</option>
+						<option class="p2">2</option>
+						<option class="p3">3</option>
+						<option class="p4">4</option>
+				</select></td>
+				<td>
+					<div id="pl"></div>
+				</td>
+			</tr>			
+		</table>
+		<input type="submit" value="Nuevo Jugador" name="Nou_Jugador"> 
+                <input type="submit" value="Jugar" name="jugar">
+	</form>
+</body>
 </html>
