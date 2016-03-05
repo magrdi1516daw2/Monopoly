@@ -10,6 +10,7 @@ public class Jugador {
     private int diners;
     private int casella;
     private boolean tirar;
+    private String color;
 
     public Jugador() {
         diners = 30000;
@@ -18,10 +19,24 @@ public class Jugador {
 
     
     
-    public Jugador(String nom) {
+    public Jugador(String nom,String color) {
         this.nom = nom;
+        this.color = color;
         diners = 30000;
-        //casella = 0;
+        casella = 0;
+    }
+
+    public void setCasella(int casella) {
+        this.casella = (this.casella + casella) % 39;// sumem el dau a la casella el % 39 es per fer que arriba al 39 torni a començar
+        
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
 

@@ -9,6 +9,7 @@ package monopoly;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,36 +29,36 @@ import utils.MonopoliUtils;
 /**
  * Servlet implementation class GameController
  */
-@WebServlet(name = "GameController", urlPatterns = { "/GameController" })
+@WebServlet(name = "MonopoliServlet", urlPatterns = { "/MonopoliServlet" })
 public class MonopoliServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public MonopoliServlet() {
-		super();
-	}
-
+        
+        Partida p = new Partida();
+        int i=0;
+        int maxJug=0;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+        @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
 		response.getWriter().append("Served at:").append(request.getContextPath());
-
+                maxJug=Integer.parseInt(session.getAttribute("nJugadors").toString());
 		String action = "";
-		String ruta = "/index.jsp";
-
+		String ruta = "view.jsp";
 		// Miramos la accion a realizar
-		if (request.getParameter("jugar") != null) {
+		if (request.getParameter("start") != null) {
+			action = "start";
+		} else if (request.getParameter("jugar") != null) {
 			action = "jugar";
 		} else if (request.getParameter("tirar") != null) {
 			action = "tirar";
-		} else if (request.getParameter("alta") != null) {
-			action = "alta";
+		} else if (request.getParameter("passar") != null) {
+			action = "passar";
 		} else if (request.getParameter("comprar") != null) {
 			action = "comprar";
 		} else if (request.getParameter("edificar") != null) {
@@ -68,14 +69,28 @@ public class MonopoliServlet extends HttpServlet {
 
 		// Enviamos al metodo correspondiente seguin la accion a realizar
 		switch (action) {
-		case "alta":
-			//ruta = goToPlayers(request);
+                    case "start":
+                        i=0;
+                        List<Jugador> j = (List) session.getAttribute("jugadores");
+                        p.setJugadores(j);
+                        System.out.println(p.getJugadores());
+                        session.setAttribute("newGame",false); //aqui lo pasamos a false para que se muestre el tablero
+                        session.setAttribute("partida", p);
+                        session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());
+                        session.setAttribute("bTirar", true);
+                        break;
+		case "passar":
+			i=(i+1)%maxJug;
+                        session.setAttribute("partida", p);
+                        session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());
+                        session.setAttribute("bTirar", true);
 			break;
 		case "jugar":
 			//goToPlayers(request);
 			break;
 		case "tirar":
-			//goToGame(request);
+                        session.setAttribute("bTirar", false);
+			tiraDau(session);
 			break;
 		case "comprar":
 			//goToBuy(request);
@@ -89,7 +104,19 @@ public class MonopoliServlet extends HttpServlet {
 
 		RequestDispatcher rd = request.getRequestDispatcher(ruta);
 		rd.forward(request, response);
+                
+                
 	}
+        
+        private void tiraDau(HttpSession session){
+           Random r = new Random();
+           int Result = r.nextInt(6-1)+1;
+           session.setAttribute("dau",Result);
+           p.getJugadores().get(i).setCasella(Result);
+            System.out.println( p.getJugadores().get(i).getCasella());
+            
+        }
+        
 /*
 	private void goToBuild(HttpServletRequest request) {
 		HttpSession session = request.getSession();

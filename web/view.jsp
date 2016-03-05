@@ -1,10 +1,5 @@
-<%-- 
-    Document   : view
-    Created on : 01/02/2016, 17:57:58
-    Author     : marta
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -73,23 +68,18 @@
         
         </style>
     </head>
-    <body> <table class="content">
-        <tr> 
-            <td colspan="3">    
-                <header>
-                <h2>pMonopoly!</h2>
-                </header>
-            </td>
-        </tr>
+    <body> 
+        <c:choose>
+            <c:when test="${newGame}">
+                <form action="MonopoliServlet" method="get">
+                    <input type="submit" value="Start" name="start">
+                </form>
+            </c:when>
+            <c:otherwise>
+        <table class="content">
         
         <tr>
-            <td> Columna lateral esquerra </br>
-            <jsp:useBean id="jugador1" class="monopoly.Jugador"/>
-             <jsp:getProperty name="jugador1" property="nom" />
-             Hola ${jugador1.nom} !
-        
-            </td>
-            
+
             <td>  
                 <table  id='tauler' border='1' >
                     <tr>
@@ -289,7 +279,27 @@
             
             </td><!-- tancament cel·la del tauler-->
         
-        <td> Columna lateral dreta</td>
+        <td> 
+            <div>
+                Torn del jugador:
+              ${JugadorActual}
+            </div>
+            <div id="contentDau">
+                <c:if test="${dau!=null}">
+                    <img src="images/d${dau}.png"/>
+                </c:if>
+                <form action="MonopoliServlet" method="post">
+                    <c:if test="${bTirar==true}">
+                    <input type="submit" value="Tirar" name="tirar">
+                    </c:if>
+                    <c:if test="${bTirar==false}">
+                    <input type="submit" value="Passar" name="passar">
+                    </c:if>
+                    
+                </form>
+            </div>
+        
+        </td>
         
         </tr> <!-- tancament fila del tauler-->
          
@@ -301,5 +311,8 @@
             </td>
         </tr>
         
-    </table>  </body> <!-- tancament taula de continguts-->
+    </table>  
+        </c:otherwise>
+        </c:choose>
+</body> <!-- tancament taula de continguts-->
 </html>

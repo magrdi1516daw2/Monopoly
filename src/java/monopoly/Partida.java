@@ -12,13 +12,14 @@ package monopoly;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Partida {
+public class  Partida {
 	private Taulell board = new Taulell();
-	private List<Jugador> jugadores;//important farem que els jugadros que anem entrant es vagin guardant 
-	/*
+	public List<Jugador> jugadores;//important farem que els jugadros que anem entrant es vagin guardant 
 	private int dado;
 	private float impuesto = 0f;
-	
+        
+	public Partida() {
+        }
 	public List<Jugador> getJugadores() {
 		return jugadores;
 	}
@@ -41,6 +42,8 @@ public class Partida {
 
 	public void setImpuesto(float impuesto) {
 		this.impuesto = impuesto;
-	}*/
+	}
+
+    
         
 }

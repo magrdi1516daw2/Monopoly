@@ -16,10 +16,10 @@ public class Principal {
 
     public static void main(String[] args) {
   
-        Taulell taulell = new Taulell();
+        /*Taulell taulell = new Taulell();
         ArrayList <Casella> casellesM = taulell.getCaselles();
         //Iniciem partida creem jugadors
-        Jugador jugador1 = new Jugador("Marta");
+        Jugador jugador1 = new Jugador("Marta","#000000");
         Jugador jugador2 = new Jugador();
         //jugador2.setNom("Claudia");
         //
@@ -45,7 +45,7 @@ public class Principal {
                // }
           }
          
-         
+         */
          
          /*if(taulell.getCasella(jugador1.getCasella())==null){
              System.out.println("Vols comprar la casella?");
