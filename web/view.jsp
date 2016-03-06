@@ -3,70 +3,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>JSP Page</title>
-        
-    <style>
-        body {
-            width: 99%;
-            //height: 100%;
-        }
-        
-        table.content {
-            //text-align: center;
-        }
-        
-
-        header {
-            text-align: center;
-        }
-        
-        #tauler {
-            //width: 800px;
-            //height: 800px;
-            font-family: serif;
-            font-size: 10px;
-            text-align: center;
-            //border-collapse: collapse;
-            border-style: solid;
-            border-width: 5px;
-            
-        }
-        
-
-        
-        td.vernom {
-           width: 102px;;
-           height: 42px;
-           padding: 0;
-           margin: 0;
-           //overflow: hidden;
-           
-        }
-        
-        td.vercolor {
-           width: 5%;
-        }
-        
-        td.hornom {
-           width: 42px;
-           height: 102px;
-           
-        }
-        
-        td.horcolor {
-            height: 35px;;
-        }       
-        
-        td.interiors {
-            border-color: transparent;
-        }
-        
-
-        
-        
-        </style>
     </head>
     <body> 
         <c:choose>
@@ -79,7 +19,18 @@
         <table class="content">
         
         <tr>
-
+            <td class="laterals"> 
+                <c:forEach  var='jugador' items='${jugadores}' >
+                   ${jugador.toString()}
+                </c:forEach>
+                
+                <!-- Per controlar les posicions mentre no tenim les fitxes implementades -->
+                <c:forEach  var='jugador' items='${jugadores}' >
+                   ${jugador.onEs()}
+                </c:forEach>
+                
+            </td>
+            
             <td>  
                 <table  id='tauler' border='1' >
                     <tr>
@@ -145,9 +96,14 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
                         <td class='interiors'></td>  
-                        <td class='interiors'></td> 
-                        <td class='interiors'></td>  
-                        <td class='interiors'></td> 
+                        <td class='interiors' colspan='3'>
+                            <div>
+                                Torn del jugador:
+                                ${JugadorActual}
+                            </div>
+                        </td> 
+                       <!--<td class='interiors'></td>  
+                        <td class='interiors'></td> -->
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
@@ -161,9 +117,25 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
-                        <td class='interiors'></td>  
-                        <td class='interiors'></td> 
-                        <td class='interiors'></td>  
+                        <td  colspan='3' rowspan="4">
+                            <div id="contentDau">
+                                <c:if test="${dau!=null}">
+                                    <img src="images/d${dau}.png"/>
+                                </c:if>
+                                
+                                <form action="MonopoliServlet" method="post">
+                                    <c:if test="${bTirar==true}">
+                                        <input type="submit" value="Tirar" name="tirar">
+                                    </c:if>
+                                    
+                                    <c:if test="${bTirar==false}">
+                                        <input type="submit" value="Passar" name="passar">
+                                    </c:if>
+                                </form>
+                            </div>
+                        </td>  
+                       <!-- <td class='interiors'>aqui</td> 
+                        <td class='interiors'>aqui</td>  -->
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
@@ -177,9 +149,9 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
                         <td class='interiors'></td>  
-                        <td class='interiors'></td> 
-                        <td class='interiors'></td>  
-                        <td class='interiors'></td> 
+                        <!-- <td class='interiors'>aqui</td> 
+                        <td class='interiors'>aqui</td>  
+                        <td class='interiors'>aqui</td>  -->
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
@@ -193,9 +165,9 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
                         <td class='interiors'></td>  
-                        <td class='interiors'></td> 
-                        <td class='interiors'></td>  
-                        <td class='interiors'></td> 
+                        <!--<td class='interiors'>aqui</td> 
+                        <td class='interiors'>aqui</td>  
+                        <td class='interiors'>aqui</td> -->
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
@@ -209,9 +181,6 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
                         <td class='interiors'></td>  
-                        <td class='interiors'></td> 
-                        <td class='interiors'></td>  
-                        <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>  
@@ -254,7 +223,7 @@
                     <tr>
                         <td colspan='2' rowspan="2">VISITANT LA PRESÓ</td>
                         <td bgcolor='#99ccff' class="horcolor">Consell de Cent</td>
-                        <td bgcolor='#99ccff'class="horcolor">Carrer Urgell</td>
+                        <td bgcolor='#99ccff' class="horcolor">Carrer Urgell</td>
                         <td class="horcolor">Sort</td>
                         <td bgcolor='#99ccff' class="horcolor">Carrer Girona</td>
                         <td class="horcolor">Ferrocarrils catalans</td> 
@@ -262,44 +231,26 @@
                         <td bgcolor='#660066' class="horcolor">Carrer Roselló</td>
                         <td class="horcolor">comunitat</td>
                         <td bgcolor='#660066' class="horcolor">Carrer d'Avinyo</td>
-                        <td colspan='2' rowspan="2">SORTIDA</td>
+                        <td id="0" colspan='2' rowspan="2">SORTIDA</td>
                     </tr>
                     <tr>
-                        <td class="hornom">Carrer cian3</td>
-                        <td class="hornom">Carrer cian2</td>
-                        <td class="hornom"><img class="Himg" src="images/Hsort.png" alt=""  ></td>
-                        <td class="hornom">Carrer cian1</td>
-                        <td class="hornom"><img class="Himg" src="images/tren.png" alt=""  ></td> 
-                        <td class="hornom"><img src="images/impostos.png" alt=""  ></td>
-                        <td class="hornom">Carrer lila2</td>
-                        <td class="hornom"><img src="images/chest.jpg" alt=""  ></td>
-                        <td class="hornom">Carrer lila2</td>
+                        <td id="9" class="hornom">Carrer cian3</td>
+                        <td id="8" class="hornom">Carrer cian2</td>
+                        <td id="7" class="hornom"><img class="Himg" src="images/Hsort.png" alt=""  ></td>
+                        <td id="6" class="hornom">Carrer cian1</td>
+                        <td id="5" class="hornom"><img class="Himg" src="images/tren.png" alt=""  ></td> 
+                        <td id="4" class="hornom"><img src="images/impostos.png" alt=""  ></td>
+                        <td id="3" class="hornom">Carrer lila2</td>
+                        <td id="2" class="hornom"><img src="images/chest.jpg" alt=""  ></td>
+                        <td id="1" class="hornom">Carrer lila2</td>
                     </tr>
                 </table> <!-- tancament de la taula que fomra el tauler-->
             
             </td><!-- tancament cel·la del tauler-->
         
-        <td> 
-            <div>
-                Torn del jugador:
-              ${JugadorActual}
-            </div>
-            <div id="contentDau">
-                <c:if test="${dau!=null}">
-                    <img src="images/d${dau}.png"/>
-                </c:if>
-                <form action="MonopoliServlet" method="post">
-                    <c:if test="${bTirar==true}">
-                    <input type="submit" value="Tirar" name="tirar">
-                    </c:if>
-                    <c:if test="${bTirar==false}">
-                    <input type="submit" value="Passar" name="passar">
-                    </c:if>
-                    
-                </form>
-            </div>
-        
-        </td>
+            <td class="laterals"> 
+                dreta
+            </td>
         
         </tr> <!-- tancament fila del tauler-->
          

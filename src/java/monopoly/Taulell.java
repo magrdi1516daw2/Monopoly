@@ -99,14 +99,6 @@ public class Taulell {
         caselles.add(casella38);
          Casella casella39 = new Casella(39,"Paseig de gracia",21000);
         caselles.add(casella39);
-        
-        
-        
-        
-        
-        
-        
-                                   
     }
 
     public ArrayList<Casella> getCaselles() {

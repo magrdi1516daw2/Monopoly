@@ -65,7 +65,7 @@ public class Jugador {
        
     @Override
     public String toString() {
-        return "Jugador{" + "nom=" + nom + ", diners=" + diners + '}';
+        return "El jugador "+ nom + " té " + diners + "euros.</br></br>";
     }
     
     
@@ -73,14 +73,14 @@ public class Jugador {
     public String tirarDau(){
           int num = (int) Math.ceil(Math.random() * 6);
               casella += num;
+                  
               
-                      
     return "El jugador "+ nom +" ha tret un "+ num +".";
         
     }
     
     public String onEs(){
-    return "El jugador "+nom+" esta a la casella "+ casella+".";
+    return "El jugador "+nom+" esta a la casella "+ casella+".</br></br>";
             }
     
    /* cobrar(int preu){
