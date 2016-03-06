@@ -34,9 +34,9 @@ public class MonopoliServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
         
-        Partida p = new Partida();
-        int i=0;
-        int maxJug=0;
+        Partida p = new Partida();//creem el objecte partida
+        int i=0;//inicialitzem la i que ens indicara la id del jugador que ha de tirar 
+        int maxJug=0;//sera el nombre de jugadors que jugaran a la partida en qüestio
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -45,12 +45,12 @@ public class MonopoliServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();//obtenim la sesio previament creada
 		response.getWriter().append("Served at:").append(request.getContextPath());
-                maxJug=Integer.parseInt(session.getAttribute("nJugadors").toString());
+                maxJug=Integer.parseInt(session.getAttribute("nJugadors").toString());//mirem el nombre de jugadors de la sesio
 		String action = "";
-		String ruta = "view.jsp";
-		// Miramos la accion a realizar
+		String ruta = "view.jsp";//setejem la ruta
+		// depenent de la accio que enviem per la request farem una cosa o la altre
 		if (request.getParameter("start") != null) {
 			action = "start";
 		} else if (request.getParameter("jugar") != null) {
@@ -69,28 +69,28 @@ public class MonopoliServlet extends HttpServlet {
 
 		// Enviamos al metodo correspondiente seguin la accion a realizar
 		switch (action) {
-                    case "start":
+                    case "start"://si començem
                         i=0;
-                        List<Jugador> j = (List) session.getAttribute("jugadores");
-                        p.setJugadores(j);
-                        System.out.println(p.getJugadores());
+                        List<Jugador> j = (List) session.getAttribute("jugadores");//obtenim la llista de la sesio
+                        p.setJugadores(j);//ara li donem al objecte partida que hem creat la llista de jugadors
+                        System.out.println(p.getJugadores());//Aqui els veiem per consola
                         session.setAttribute("newGame",false); //aqui lo pasamos a false para que se muestre el tablero
-                        session.setAttribute("partida", p);
-                        session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());
-                        session.setAttribute("bTirar", true);
+                        session.setAttribute("partida", p);//Guardem la partida en la sesio
+                        session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());//Settejem el jugador actual
+                        session.setAttribute("bTirar", true);//setejem el atribut tirar per veure si podem tirar
                         break;
 		case "passar":
-			i=(i+1)%maxJug;
-                        session.setAttribute("partida", p);
-                        session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());
-                        session.setAttribute("bTirar", true);
+			i=(i+1)%maxJug;//sumem un per pasar el torn el max jugadors fara que la suma quan arribi al nombre de max jugadors torni a zero
+                        session.setAttribute("partida", p);//Guardem un altre cop la partida a la sesio per guardar els canvis fets
+                        session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());//guardem el jugador actual
+                        session.setAttribute("bTirar", true);// i b tirar a true per que el boto passar canvi a tirar
 			break;
 		case "jugar":
 			//goToPlayers(request);
 			break;
 		case "tirar":
-                        session.setAttribute("bTirar", false);
-			tiraDau(session);
+                        session.setAttribute("bTirar", false);//pasem el tirar a false per que es mostri el boto passar en comptes de tirar
+			tiraDau(session);//anem a la funcio tirar dau pasant-li la sessio
 			break;
 		case "comprar":
 			//goToBuy(request);
@@ -109,11 +109,11 @@ public class MonopoliServlet extends HttpServlet {
 	}
         
         private void tiraDau(HttpSession session){
-           Random r = new Random();
-           int Result = r.nextInt(6-1)+1;
-           session.setAttribute("dau",Result);
-           p.getJugadores().get(i).setCasella(Result);
-            System.out.println( p.getJugadores().get(i).getCasella());
+           Random r = new Random();// creem un nombre random
+           int Result = r.nextInt(6-1)+1;//6-1 ens indica que el maxim serà 6 i el minim 1
+           session.setAttribute("dau",Result);//Guardem el resultat del dau en una sessio
+           p.getJugadores().get(i).setCasella(Result);//de la llista de jugadors obtenim el jugador que ha tirar i li sumem la casella a la clase casella
+            System.out.println( p.getJugadores().get(i).getCasella());//printem el nombre de casella on es troba
             
         }
         
