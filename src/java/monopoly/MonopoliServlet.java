@@ -90,10 +90,12 @@ public class MonopoliServlet extends HttpServlet {
 			break;
 		case "tirar":
                         session.setAttribute("bTirar", false);//pasem el tirar a false per que es mostri el boto passar en comptes de tirar
-			tiraDau(session);//anem a la funcio tirar dau pasant-li la sessio
+			tiraDau(session);//anem a la funcio tirar dau pasant-li la sessio 
+                        comprovaCasella(session);
+ 
 			break;
 		case "comprar":
-			//goToBuy(request);
+			comprarCasella(session);
 			break;
 		case "edificar":
 			//goToBuild(request);
@@ -109,13 +111,93 @@ public class MonopoliServlet extends HttpServlet {
 	}
         
         private void tiraDau(HttpSession session){
-           Random r = new Random();// creem un nombre random
-           int Result = r.nextInt(6-1)+1;//6-1 ens indica que el maxim serà 6 i el minim 1
-           session.setAttribute("dau",Result);//Guardem el resultat del dau en una sessio
-           p.getJugadores().get(i).setCasella(Result);//de la llista de jugadors obtenim el jugador que ha tirar i li sumem la casella a la clase casella
+            Random r = new Random();// creem un nombre random
+            int Result = r.nextInt(6-1)+1;//6-1 ens indica que el maxim serà 6 i el minim 1
+            session.setAttribute("dau",Result);//Guardem el resultat del dau en una sessio
+            p.getJugadores().get(i).setCasella(Result);//de la llista de jugadors obtenim el jugador que ha tirar i li sumem la casella a la clase casella
             System.out.println( p.getJugadores().get(i).getCasella());//printem el nombre de casella on es troba
+            session.setAttribute("casellaActual",p.getJugadores().get(i).getCasella());//guardem la casella actual en una sesio per veure posteriorment si es pot comprar aquesta casella o no
             
         }
+        
+        private void comprovaCasella(HttpSession session){
+            //session.setAttribute("caselles",p.getBoard().getCaselles());
+            int dinero;
+            List<Casella> c = (List) session.getAttribute("caselles");     
+            System.out.println(p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPropietari());//extreu informacio de la casella actual
+            session.setAttribute("propietariActual",p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPropietari());
+            int numCase=(int)session.getAttribute("casellaActual");
+            //si estem a una casella de impost!
+            if(session.getAttribute("propietariActual")==null && (numCase==2 || numCase==4 || numCase==17 || numCase==38 || numCase==33)){             
+               System.out.println("Siiiiii!!");
+                switch(numCase){
+                    case 2:
+                        dinero =p.getJugadores().get(i).getDiners()-300;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(300);
+
+                    break;
+                    case 4:
+                        dinero =p.getJugadores().get(i).getDiners()-400;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(400);
+
+                    break;
+                    case 17:
+                        dinero =p.getJugadores().get(i).getDiners()-600;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(600);
+
+                    break;
+                    case 38:
+                        dinero =p.getJugadores().get(i).getDiners()-700;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(700);
+
+                    break;
+                    case 33:
+                        dinero =p.getJugadores().get(i).getDiners()-800;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(800);
+                    break;
+                    
+
+
+                }    
+            }
+            
+            if(session.getAttribute("propietariActual")!=null && (numCase==20)){
+                dinero =p.getJugadores().get(i).getDiners()+p.getImpuesto();
+                p.getJugadores().get(i).setDiners(dinero);
+                p.setImpuesto(0);
+            }
+            
+            
+            
+            if(session.getAttribute("propietariActual")!=null && session.getAttribute("propietariActual")!=p.getJugadores().get(i).getNom()){
+            dinero =p.getJugadores().get(i).getDiners()-200;
+             p.getJugadores().get(i).setDiners(dinero);
+             for(int o=0;o < maxJug;o++){
+                 if(session.getAttribute("propietariActual").equals(p.getJugadores().get(o).getNom())){
+                    dinero=p.getJugadores().get(i).getDiners()+200;
+                    p.getJugadores().get(o).setDiners(dinero);
+                 }
+             
+             }
+                
+            }
+            
+        }
+       private void comprarCasella(HttpSession session){
+            p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).setPropietari(p.getJugadores().get(i).getNom());
+            System.out.println(p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPropietari());
+            session.setAttribute("propietariActual",p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPropietari());
+            int preuCasella=p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPreu();
+            int dinersJugador=p.getJugadores().get(i).getDiners();
+            dinersJugador-=preuCasella;
+            p.getJugadores().get(i).setDiners(dinersJugador);
+            
+       }
         
 /*
 	private void goToBuild(HttpServletRequest request) {

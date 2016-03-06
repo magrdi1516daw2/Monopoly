@@ -14,6 +14,7 @@ import monopoly.Casella;
  */
 public class Taulell {
     private ArrayList <Casella> caselles;
+    
 
     public Taulell() {
         

@@ -16,7 +16,7 @@ public class  Partida {
 	private Taulell board = new Taulell();
 	public List<Jugador> jugadores;//important farem que els jugadros que anem entrant es vagin guardant 
 	private int dado;
-	private float impuesto = 0f;
+	private int impuesto = 0;
         
 	public Partida() {
         }
@@ -36,14 +36,24 @@ public class  Partida {
 		this.dado = dado;
 	}
 
-	public float getImpuesto() {
+	public int getImpuesto() {
 		return impuesto;
 	}
 
-	public void setImpuesto(float impuesto) {
-		this.impuesto = impuesto;
+	public void setImpuesto(int impuesto) {
+            if(impuesto==0){
+                this.impuesto = impuesto;
+            }else{
+		this.impuesto += impuesto;
+            }
 	}
+        public Taulell getBoard() {
+        return board;
+        }
 
+        public void setBoard(Taulell board) {
+            this.board = board;
+        }
     
         
 }
