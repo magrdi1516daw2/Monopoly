@@ -50,6 +50,8 @@ public class MonopoliServlet extends HttpServlet {
                 maxJug=Integer.parseInt(session.getAttribute("nJugadors").toString());//mirem el nombre de jugadors de la sesio
 		String action = "";
 		String ruta = "view.jsp";//setejem la ruta
+                /**/
+                
 		// depenent de la accio que enviem per la request farem una cosa o la altre
 		if (request.getParameter("start") != null) {
 			action = "start";
@@ -84,7 +86,12 @@ public class MonopoliServlet extends HttpServlet {
                         session.setAttribute("partida", p);//Guardem un altre cop la partida a la sesio per guardar els canvis fets
                         session.setAttribute("JugadorActual", p.getJugadores().get(i).getNom());//guardem el jugador actual
                         session.setAttribute("bTirar", true);// i b tirar a true per que el boto passar canvi a tirar
-			break;
+			int dinersJugador=p.getJugadores().get(i).getDiners();
+                            if(dinersJugador<=0){
+                            p.getJugadores().remove(i);
+
+                            }
+                        break;
 		case "jugar":
 			//goToPlayers(request);
 			break;
@@ -169,6 +176,31 @@ public class MonopoliServlet extends HttpServlet {
 
                 }    
             }
+            //Suerte
+            if(session.getAttribute("propietariActual")==null && (numCase==7 || numCase==22 || numCase==36)){             
+               System.out.println("Siiiiii!!");
+                switch(numCase){
+                    case 7:
+                        dinero =p.getJugadores().get(i).getDiners()+300;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        //p.setImpuesto(300);
+
+                    break;
+                    case 22:
+                        dinero =p.getJugadores().get(i).getDiners()+400;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        //p.setImpuesto(400);
+
+                    break;
+                    case 36:
+                        dinero =p.getJugadores().get(i).getDiners()+600;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        //p.setImpuesto(600);
+
+                    break;
+                }    
+            }
+            
             //parking
             if(session.getAttribute("propietariActual")!=null && (numCase==20)){
                 dinero =p.getJugadores().get(i).getDiners()+p.getImpuesto();
@@ -207,227 +239,7 @@ public class MonopoliServlet extends HttpServlet {
             
        }
         
-/*
-	private void goToBuild(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		synchronized (session) { // no synchronized(this)
 
-                        // para la persistencia de los datos recupera el objeto partida de la sesion
-			Partida partida = (Partida) session.getAttribute("partida");
-			if (partida == null) {
-				partida = new Partida(); // si no hay partida (pq es la primera vez q se llama a esta funcion) la crea
-			}
-
-			List<Jugador> jugadores = null;
-
-			// Miramos si ya hay jugadores creados
-			if (partida.getJugadores() == null) {
-				jugadores = new ArrayList<>();
-			} else {
-				jugadores = partida.getJugadores();
-			}
-
-                        // SOLO SI YA HAY JUGADORES (SINO, SALTA EL BUCLE DIRECTAMENTE)
-			for (int i = 0; i < jugadores.size(); i++) {
-				if (jugadores.get(i).getActivaEdificar().equals("enabled")) {
-					jugadores.get(i).setActivaEdificar("disabled");
-					for (CasillaNormal casillaNormal : jugadores.get(i).getCasillaNormales()) {
-						if (casillaNormal.getNumero() == jugadores.get(i).getNewPosicion()) {
-							if (casillaNormal.getCasas() < 5) {
-								casillaNormal.setCasas(casillaNormal.getCasas() + 1);
-								jugadores.get(i).setDinero(jugadores.get(i).getDinero() - 30);
-								jugadores.get(i).setInfoPlayer("Acabas de edificar en la casilla que has caido");
-							}
-						}
-					}
-				}
-			}
-                        // ---------------------
-
-			// Seteamos las variables de session y de envio a la pantalla
-			partida.setJugadores(jugadores);
-			request.setAttribute("partida", partida);
-			session.setAttribute("partida", partida);
-		}
-
-	}
-
-	private void goToBuy(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		synchronized (session) { // no synchronized(this)
-
-			Partida partida = (Partida) session.getAttribute("partida");
-			if (partida == null) {
-				partida = new Partida();
-			}
-
-			List<Jugador> jugadores = null;
-
-			// Miramos si ya hay jugadores creados
-			if (partida.getJugadores() == null) {
-				jugadores = new ArrayList<>();
-			} else {
-				jugadores = partida.getJugadores();
-			}
-
-                        MonopoliUtils monopoliUtils = new MonopoliUtils();
-                        
-			for (int i = 0; i < jugadores.size(); i++) {
-				if (jugadores.get(i).getActivaComprar().equals("enabled")) {
-					jugadores.get(i).setActivaComprar("disabled");
-					CasillaNormal casillaNormal = new CasillaNormal();
-					casillaNormal.setCasas(0);
-					casillaNormal.setNumero(jugadores.get(i).getNewPosicion());
-					casillaNormal.setPropietario(jugadores.get(i));
-					casillaNormal.setPrecio(monopoliUtils.calcularPrecio(jugadores.get(i).getNewPosicion()));
-					if(jugadores.get(i).getCasillaNormales() == null){
-						List<CasillaNormal> casillas = new ArrayList<>();
-						jugadores.get(i).setCasillaNormales(casillas);
-					}
-					jugadores.get(i).getCasillaNormales().add(casillaNormal);
-					jugadores.get(i).setDinero(jugadores.get(i).getDinero() - casillaNormal.getPrecio());
-					jugadores.get(i).setInfoPlayer("Acabas de comprar la casilla en la que has caido");
-				}
-			}
-
-			// Seteamos las variables de session y de envio a la pantalla
-			partida.setJugadores(jugadores);
-			request.setAttribute("partida", partida);
-			session.setAttribute("partida", partida);
-		}
-	}
-
-	private void goToGame(HttpServletRequest request) {
-		// Revisamos la session para recuperar la lista de jugadores
-		HttpSession session = request.getSession();
-		synchronized (session) { // no synchronized(this)
-
-			Partida partida = (Partida) session.getAttribute("partida");
-			if (partida == null) {
-				partida = new Partida();
-			}
-
-			List<Jugador> jugadores = null;
-
-			// Miramos si ya hay jugadores creados
-			if (partida.getJugadores() == null) {
-				jugadores = new ArrayList<>();
-			} else {
-				jugadores = partida.getJugadores();
-			}
-
-			// Recuperamos el valor del dado
-			Dice dice = new Dice();
-			int dado = dice.getValor();
-			partida.setDado(dado);
-
-			MonopoliUtils monopoliUtils = new MonopoliUtils();
-
-			Integer turno = null;
-			// Gestionamos la posicion del jugador con el resultado de los dados
-			for (int i = 0; i < jugadores.size(); i++) {
-				if (jugadores.get(i).isTurno()) {
-					turno = i;
-					// Comprobamos que no se pase del maximo de casillas, si
-					// es asi nos quedamos con la diferencia
-					jugadores.get(i).setOldPosicion(jugadores.get(i).getNewPosicion());
-					if (jugadores.get(i).getNewPosicion() + dado < 26) {
-						jugadores.get(i).setNewPosicion(jugadores.get(i).getNewPosicion() + dado);
-					} else {
-						int recalcular = jugadores.get(i).getNewPosicion() + dado;
-						jugadores.get(i).setNewPosicion(recalcular = recalcular - 26);
-
-					}
-                                        monopoliUtils.infoCasilla(request, jugadores.get(i), partida);
-				}
-			}
-
-			// Modificamos el flag de la clase jugador para pasar el turno al
-			// siguiente jugador
-			jugadores.get(turno).setTurno(Boolean.FALSE);
-                        
-                        
-                        
-			if ((turno + 1 < jugadores.size()) && (jugadores.get(turno + 1).getTurnosSinTirar() == 0)) {
-				jugadores.get(turno + 1).setTurno(Boolean.TRUE);
-			} else if ((turno + 2 < jugadores.size()) && (jugadores.get(turno + 2).getTurnosSinTirar() == 0)) {
-				jugadores.get(turno + 2).setTurno(Boolean.TRUE);
-			} else if ((turno + 3 < jugadores.size()) && (jugadores.get(turno + 3).getTurnosSinTirar() == 0)) {
-				jugadores.get(turno + 3).setTurno(Boolean.TRUE);
-			} else {
-				jugadores.get(0).setTurno(Boolean.TRUE);
-			}
-
-                        for (Jugador jugador : jugadores)
-                            if (jugador.getDinero() < 0)
-                                jugadores.remove(jugador);
-                        
-			// Seteamos las variables de session y de envio a la pantalla
-			partida.setJugadores(jugadores);
-			request.setAttribute("partida", partida);
-			session.setAttribute("partida", partida);
-		}
-	}
-
-	public String goToPlayers(HttpServletRequest request) {
-		// Revisamos la session para ver si ya tenemos algun jugador o la
-		// creamos si es la primera vez
-		HttpSession session = request.getSession();
-		synchronized (session) { // no synchronized(this)
-			Boolean turno = Boolean.FALSE;
-			Partida partida = (Partida) session.getAttribute("partida");
-			if (partida == null) {
-				partida = new Partida();
-			}
-
-			List<Jugador> jugadores = null;
-
-			// Miramos si ya hay jugadores creados
-			if (partida.getJugadores() == null) {
-				jugadores = new ArrayList<>();
-				turno = Boolean.TRUE;
-			} else {
-				jugadores = partida.getJugadores();
-			}
-
-			// Creamos un objeto jugador y recuperamos los parametros de
-			// interes
-			Jugador jugador = new Jugador();
-			jugador.setTurno(turno);
-			jugador.setActivaComprar("disabled");
-			jugador.setActivaEdificar("disabled");
-			jugador.setDinero(MonopoliUtils.DINERO_INICIAL);
-			jugador.setTurnosSinTirar(0);
-			jugador.setNick(request.getParameter("nick"));
-			jugador.setNewPosicion(1);
-			jugador.setAvatar("images/player" + request.getParameter("avatar") + ".png");
-
-			// En caso de refresco de pantalla o rellamada miramos que no se
-			// creen nuevos jugadores
-			Boolean exist = Boolean.FALSE;
-			for (Jugador player : jugadores) {
-				if (player.getNick().equals(jugador.getNick())) {
-					exist = Boolean.TRUE;
-				}
-			}
-
-			// Si existen ya no los añadimos
-			if (!exist && !jugador.getNick().equals("") && jugador.getNick() != null) {
-				jugadores.add(jugador);
-			}
-
-			// Damos el primer valor al dado
-			Dice dice = new Dice();
-			int dado = dice.getValor();
-			partida.setDado(dado);
-
-			// Seteamos las variables de session y de envio a la pantalla
-			partida.setJugadores(jugadores);
-			request.setAttribute("partida", partida);
-			session.setAttribute("partida", partida);
-		}
-		return "/players.jsp";
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

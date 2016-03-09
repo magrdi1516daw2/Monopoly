@@ -27,8 +27,11 @@ public class Jugador {
     }
 
     public void setCasella(int casella) {
-        this.casella = (this.casella + casella) % 39;// sumem el dau a la casella el % 39 es per fer que arriba al 39 torni a començar
         
+        this.casella = (this.casella + casella) % 39;// sumem el dau a la casella el % 39 es per fer que arriba al 39 torni a començar
+        if(this.casella==10){
+        this.casella=30;      
+        }
     }
 
     public String getColor() {
