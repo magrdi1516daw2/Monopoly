@@ -26,10 +26,16 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ProcessamentLogin", urlPatterns = {"/ProcessamentLogin"})
 public class ProcessamentLogin extends HttpServlet {
 
-   
+   boolean bfirst = true;
     
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    HttpSession session = request.getSession(true); //creem una sessio per tal de pasar els parametres necessaris
+        
+    HttpSession session = request.getSession(false); //creem una sessio per tal de pasar els parametres necessaris
+    if(bfirst && session != null){
+        session.invalidate();
+        bfirst = false;
+        session = request.getSession(true);
+    }
     String nJugadors = request.getParameter("nJugadors");//obtenim de la request el nombre de jugadors del formulari del jsp
     String jugar = request.getParameter("jugar");//obtenim de la reguest els valors del nom del jugador y els colors del formulari
         if(jugar!=null&& "Jugar".equals(jugar)){//equals para compara dos strings en java(si hem fet click a jugar)

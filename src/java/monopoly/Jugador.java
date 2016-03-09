@@ -13,7 +13,7 @@ public class Jugador {
     private String color;
 
     public Jugador() {
-        diners = 30000;
+        diners = 300000;
         casella = 0;
     }
 
@@ -22,7 +22,7 @@ public class Jugador {
     public Jugador(String nom,String color) {
         this.nom = nom;
         this.color = color;
-        diners = 30000;
+        diners = 300000;
         casella = 0;
     }
 

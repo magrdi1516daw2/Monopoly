@@ -90,7 +90,8 @@ public class MonopoliServlet extends HttpServlet {
 			break;
 		case "tirar":
                         session.setAttribute("bTirar", false);//pasem el tirar a false per que es mostri el boto passar en comptes de tirar
-			tiraDau(session);//anem a la funcio tirar dau pasant-li la sessio 
+                        int casella = p.getJugadores().get(i).getCasella();
+			tiraDau(session,casella);//anem a la funcio tirar dau pasant-li la sessio 
                         comprovaCasella(session);
  
 			break;
@@ -110,14 +111,17 @@ public class MonopoliServlet extends HttpServlet {
                 
 	}
         
-        private void tiraDau(HttpSession session){
+        private void tiraDau(HttpSession session,int casella){
             Random r = new Random();// creem un nombre random
             int Result = r.nextInt(6-1)+1;//6-1 ens indica que el maxim serà 6 i el minim 1
             session.setAttribute("dau",Result);//Guardem el resultat del dau en una sessio
             p.getJugadores().get(i).setCasella(Result);//de la llista de jugadors obtenim el jugador que ha tirar i li sumem la casella a la clase casella
             System.out.println( p.getJugadores().get(i).getCasella());//printem el nombre de casella on es troba
             session.setAttribute("casellaActual",p.getJugadores().get(i).getCasella());//guardem la casella actual en una sesio per veure posteriorment si es pot comprar aquesta casella o no
-            
+            //aixo vol dir que ha passat per la sortida
+            if(p.getJugadores().get(i).getCasella() < casella){
+                p.getJugadores().get(i).setDiners(p.getJugadores().get(i).getDiners()+20000);//afegim 20.000 euros per passar per la sortida
+            }
         }
         
         private void comprovaCasella(HttpSession session){
@@ -165,7 +169,7 @@ public class MonopoliServlet extends HttpServlet {
 
                 }    
             }
-            
+            //parking
             if(session.getAttribute("propietariActual")!=null && (numCase==20)){
                 dinero =p.getJugadores().get(i).getDiners()+p.getImpuesto();
                 p.getJugadores().get(i).setDiners(dinero);
@@ -173,8 +177,8 @@ public class MonopoliServlet extends HttpServlet {
             }
             
             
-            
-            if(session.getAttribute("propietariActual")!=null && session.getAttribute("propietariActual")!=p.getJugadores().get(i).getNom()){
+            //caure en un altre cassella d'un altre propietari
+            if(session.getAttribute("propietariActual")!=null && !(session.getAttribute("propietariActual").equals(p.getJugadores().get(i).getNom())) ){
             dinero =p.getJugadores().get(i).getDiners()-200;
              p.getJugadores().get(i).setDiners(dinero);
              for(int o=0;o < maxJug;o++){
@@ -190,11 +194,15 @@ public class MonopoliServlet extends HttpServlet {
         }
        private void comprarCasella(HttpSession session){
             p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).setPropietari(p.getJugadores().get(i).getNom());
+            
             System.out.println(p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPropietari());
+            
             session.setAttribute("propietariActual",p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPropietari());
+            session.setAttribute("propietaris",p.getBoard().getCaselles());
+            
             int preuCasella=p.getBoard().getCaselles().get((int) session.getAttribute("casellaActual")).getPreu();
             int dinersJugador=p.getJugadores().get(i).getDiners();
-            dinersJugador-=preuCasella;
+            dinersJugador -= preuCasella;
             p.getJugadores().get(i).setDiners(dinersJugador);
             
        }

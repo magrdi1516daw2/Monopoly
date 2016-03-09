@@ -578,30 +578,45 @@
             
             </td><!-- tancament cel·la del tauler-->
         
-            <td class="laterals"> 
-                <c:forEach  var='jugador' items='${jugadores}' >
-                   ${jugador.toString()}
-                </c:forEach>
+            <!-- <td class="laterals"> 
                 
-                <!-- Per controlar les posicions mentre no tenim les fitxes implementades -->
-                <c:forEach  var='jugador' items='${jugadores}' >
-                   ${jugador.onEs()}
-                </c:forEach>
-                
-            </td>
+            </td>-->
         
         </tr> <!-- tancament fila del tauler-->
          
-        <tr>  <!-- footer -->
+        <!--<tr>   footer 
             <td colspan="3">    
                 <footer>
                 peu de pàgina
                 </footer>
             </td>
-        </tr>
-        
+        </tr>-->
     </table>  
+         <!-- tota la informacio dels jugadors -->                   
+        <div class="contentJug">
+            <c:forEach  var='jugador' items='${jugadores}' >
+                <div class="infoJug">
+                    
+                    <div class="colorJug" ><div style="background-color: ${jugador.color};"></div></div>
+                    
+                    <div class="nomJug" ><b>Nom:</b> ${jugador.nom}</div>
+                    
+                    <div class="dinJug"><b>Diners:</b> ${jugador.diners} eur.</div>
+                    
+                    <div class="casellaJug">
+                        <span style="padding-bottom:8px;font-weight: bold;">Propietats:</span>
+                        
+                        <c:forEach var='propietat' items='${propietaris}'>
+                            <c:if test="${propietat.propietari == jugador.nom}">
+                                <div>${propietat.id} - ${propietat.nom}</div>
+                            </c:if>
+                        </c:forEach>
+                                
+                    </div>
+                </div>
+            </c:forEach>
+        </div>    
         </c:otherwise>
-        </c:choose>
-</body> <!-- tancament taula de continguts-->
+    </c:choose>
+</body>
 </html>
