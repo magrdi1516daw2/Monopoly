@@ -1,7 +1,6 @@
 body
 {
 	width: 99%;
-        /*background-color:#b0c4de;*/
 	font-family: sans-serif;
 }
 
@@ -17,6 +16,7 @@ body
     border-width: 5px;
     min-width: 750px;
     max-width: 750px;
+    background-color: #CCE3C7;
 }
         
 td.vernom {
@@ -24,15 +24,18 @@ td.vernom {
     height: 42px;
     padding: 0;
     margin: 0;
+    background-color: white;
 }
         
 td.vercolor {
     width: 5%;
+    
 }
         
 td.hornom {
     width: 42px;
     height: 102px;
+    background-color: white;
 }
         
 td.horcolor {

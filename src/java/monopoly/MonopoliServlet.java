@@ -154,20 +154,32 @@ public class MonopoliServlet extends HttpServlet {
                         p.setImpuesto(400);
 
                     break;
+                    case 12: //llum
+                        dinero =p.getJugadores().get(i).getDiners()-600;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(600);
+
+                    break;
                     case 17:
                         dinero =p.getJugadores().get(i).getDiners()-600;
                         p.getJugadores().get(i).setDiners(dinero);
                         p.setImpuesto(600);
 
                     break;
+                    case 28:
+                        dinero =p.getJugadores().get(i).getDiners()-600;
+                        p.getJugadores().get(i).setDiners(dinero);
+                        p.setImpuesto(600);
+
+                    break;
                     case 38:
-                        dinero =p.getJugadores().get(i).getDiners()-700;
+                        dinero =p.getJugadores().get(i).getDiners()-800;
                         p.getJugadores().get(i).setDiners(dinero);
                         p.setImpuesto(700);
 
                     break;
                     case 33:
-                        dinero =p.getJugadores().get(i).getDiners()-800;
+                        dinero =p.getJugadores().get(i).getDiners()-700;
                         p.getJugadores().get(i).setDiners(dinero);
                         p.setImpuesto(800);
                     break;

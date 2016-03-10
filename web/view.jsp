@@ -24,128 +24,129 @@
             <td>  
                 <table  id='tauler' border='1' >
                     <tr>
-                        <td colspan='2' rowspan="2"><c:forEach items="${partida.jugadores}" var="jugador">
+                        <td bgcolor='white' colspan='2' rowspan="2"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 20}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach>PARKING</td><!--casella 20 -->
+				</c:forEach>
+                            PARKING</br><small>Gratis!</small>
+                        </td><!--casella 20 -->
+                        
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 21}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 21 -->
+				</c:forEach>
+                            <small>14000e</small>
+                        </td> <!--casella 21 -->
+                        
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 22}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/Hsort.png" alt=""  ></td> <!--casella 22 -->
+				</c:forEach><img src="images/Hsort.png" alt=""  >
+                        </td> <!--casella 22 -->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 23}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 23 -->
+				</c:forEach>
+                            <small>14500e</small>
+                        </td> <!--casella 23 -->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 24}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td>
+				</c:forEach>
+                            <small>14750e</small>
+                        </td><!--casella 24-->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 25}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/tren.png" alt=""  ></td> <!--casella 24 -->
+				</c:forEach><img src="images/tren.png" alt=""  >
+                            <small>20000e</small>
+                        </td> <!--casella 25 -->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 26}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 25 -->
+				</c:forEach>
+                            <small>15000e</small>                        
+                        </td> <!--casella 26 -->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 27}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 26 -->
+				</c:forEach>
+                            <small>15500e</small>
+                        </td> <!--casella 27 -->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 28}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/aigua.png" alt=""  ></td> <!--casella 27 -->
+				</c:forEach><img src="images/aigua.png" alt=""  >
+                            <small>600e</small>
+                        </td> <!--casella 28 -->
                         <td class="hornom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 29}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 28 -->
-                        <td colspan='2' rowspan="2"><c:forEach items="${partida.jugadores}" var="jugador">
+				</c:forEach>
+                            <small>16000e</small>
+                        </td> <!--casella 29 -->
+                        <td bgcolor='white' colspan='2' rowspan="2"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 30}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach>PRESÓ</td> <!--casella 29 -->
+				</c:forEach>
+                            PRESÓ
+                        </td> <!--casella 29 -->
                     </tr>
                     <tr>
                         <td bgcolor='red' class="horcolor">Pl. Urquinaona</td>
-                        <td class="horcolor">Sort</td>
+                        <td bgcolor='white' class="horcolor">Sort</td>
                         <td bgcolor='red' class="horcolor">Carrer Fontanella</td>
                         <td bgcolor='red' class="horcolor">Ronda Sant Pere</td>
-                        <td class="horcolor">Estació de metro</td> 
+                        <td bgcolor='white'class="horcolor">Estació de metro</td> 
                         <td bgcolor='yellow' class="horcolor">Rambles</td>
                         <td bgcolor='yellow' class="horcolor">Via Laietana</td>
-                        <td class="horcolor">Aigues de Barcelona</td>
+                        <td bgcolor='white'class="horcolor">Aigues de Barcelona</td>
                         <td bgcolor='yellow' class="horcolor">Pl. Catalunya</td>
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 19}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td><!--casella 19 -->
+				</c:forEach>
+                            <small>13700e</small>
+                        </td><!--casella 19 -->
                         <td bgcolor='orange' class="vercolor">Carrer Aragó</td>
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -156,28 +157,28 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
-                        <td  bgcolor='green' class="vercolor">Portal del Angel</td><!--casella 31 -->
+                        <td bgcolor='green' class="vercolor">Portal del Angel</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 31}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> 
+				</c:forEach>
+                            <small>20000e</small>
+                        </td><!--casella 31 --> 
                     </tr>
 
                     <tr>
-                        <td><c:forEach items="${partida.jugadores}" var="jugador">
+                        <td bgcolor='white'><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 18}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 18 -->
+				</c:forEach>
+                            <small>13500e</small>
+                        </td> <!--casella 18 -->
                         <td bgcolor='orange'>Carrer diputació</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -191,26 +192,25 @@
                         <td bgcolor='green' class="vercolor">Carrer Pelayo</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 32}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 32 -->
+				</c:forEach>
+                            <small>16700e</small>
+                        </td> <!--casella 32 -->
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 17}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/chest.jpg" alt=""  ></td><!--casella 17 -->
-                        <td class="vercolor">Impost</td> 
+				</c:forEach><img src="images/chest.jpg" alt=""  >
+                        </td><!--casella 17 -->
+                        <td bgcolor='white'class="vercolor">Impost</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
                         <td class='interiors'></td>  
@@ -225,33 +225,32 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
-                        <td class="vercolor">Impost</td>
+                        <td bgcolor='white' class="vercolor">Impost</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 33}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/chest.jpg" alt=""  ></td> <!--casella 33 -->
+				</c:forEach><img src="images/chest.jpg" alt=""  >
+                        </td> <!--casella 33 -->
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 16}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 16 -->
+				</c:forEach>
+                            <small>13000e</small>
+                        </td> <!--casella 16 -->
                         <td bgcolor='orange' class="vercolor">Paseig de Sant Joan</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
-                        <td  colspan='3' rowspan="4">
+                        <td  bgcolor='#414141'colspan='3' rowspan="4">
                             <div id="contentDau">
                                 <c:if test="${dau!=null}">
                                     <img src="images/d${dau}.png"/>
@@ -279,26 +278,26 @@
                         <td bgcolor='green' class="vercolor">Via Augusta</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 34}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;   height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td>     <!--casella 34 -->           
+				</c:forEach>
+                            <small>17000e</small>
+                        </td>     <!--casella 34 -->           
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 15}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;   height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/tren.png" alt=""></td> <!--casella 15 -->
-                        <td class="vercolor">Estació de França</td> 
+				</c:forEach><img src="images/tren.png" alt="">
+                                <small>20000e</small>
+                        </td> <!--casella 15 -->
+                        <td bgcolor='white' class="vercolor">Estació de França</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
                         <td class='interiors'></td>  
@@ -308,28 +307,27 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
-                        <td class="vercolor">Estació del nort</td>
+                        <td bgcolor='white' class="vercolor">Estació del nort</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 35}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img  src="images/tren.png" alt=""  ></td>  <!--casella 35 -->              
+				</c:forEach><img  src="images/tren.png" alt=""  >
+                        <small>20000e</small></td>  <!--casella 35 -->              
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 14}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 14-->
+				</c:forEach>
+                            <small>12750e</small>
+                        </td> <!--casella 14-->
                         <td bgcolor='#cc0066' class="vercolor">Av.Infanta Carlota</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -340,12 +338,10 @@
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
-                        <td class="vercolor">Sort</td>
+                        <td bgcolor='white' class="vercolor">Sort</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 36}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
@@ -355,13 +351,13 @@
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 13}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td> <!--casella 13-->
+				</c:forEach>
+                            <small>12500e</small>
+                        </td> <!--casella 13-->
                         <td bgcolor='#cc0066' class="vercolor">Carrer Aribau</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -372,58 +368,100 @@
                         <td bgcolor='blue' class="vercolor">Carrer Balmes</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 37}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td>      <!--casella 37 -->           
+				</c:forEach>
+                            <small>17500e</small>
+                        </td>      <!--casella 37 -->           
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 12}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            <img src="images/bombeta.png" alt=""></td><!--casella 12-->
-                        <td class="vercolor">Llum</td> 
+                            <img src="images/bombeta.png" alt=""></br> 
+                            <small>600e</small>
+                        </td><!--casella 12-->
+                        <td bgcolor='white' class="vercolor">Llum</td> 
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
+                        <td class='interiors' colspan="5">
+                           <c:forEach items="${partida.jugadores}" var="jugador">
+                                <c:if test="${jugador.casella == 2}">
+                                   <h2>${jugador.nom}, estas a la casella d'impostos a la comunitat(<c:out value="${jugador.casella}"/>). </br> Has de pagar un rebut de 300e!</h2> 
+                                </c:if>
+                                   
+                                <c:if test="${jugador.casella == 4}">
+                                   <h2>${jugador.nom}, estas a la casella d'impostos d'IRPF(<c:out value="${jugador.casella}"/>). </br> Has de pagar un rebut de 400e!</h2> 
+                                </c:if>
+                                   
+                                <c:if test="${jugador.casella == 7}">
+                                    <h2>${jugador.nom}, estas a la casella sort(<c:out value="${jugador.casella}"/>). </br> Felicitats has guanyat 300e!</h2> 
+                                </c:if>
+     
+                                <c:if test="${jugador.casella == 12}">
+                                    <h2>${jugador.nom}, estas a la casella del rebut de la llum(<c:out value="${jugador.casella}"/>). </br> Has de pagar un rebut de 600e</h2> 
+                                </c:if>
+                                    
+                                <c:if test="${jugador.casella == 17}">
+                                   <h2>Has caigut a la casella d'impostos a la comunitat(<c:out value="${jugador.casella}"/>). </br> Has de pagar un rebut de 600e!</h2> 
+                                </c:if>
+
+                                <c:if test="${jugador.casella == 22}">
+                                   <h2>${jugador.nom}, estas a la casella del rebut de l'aigua(<c:out value="${jugador.casella}"/>).</br>  Has de pagar un rebut de 600e!</h2> 
+                                </c:if>
+                                   
+                                <c:if test="${jugador.casella == 28}">
+                                   <h2>${jugador.nom}, estas a la casella sort(<c:out value="${jugador.casella}"/>).</br>  Felicitats has guanyat 400e!</h2> 
+                                </c:if>
+                                   
+                                 <c:if test="${jugador.casella == 33}">
+                                   <h2>${jugador.nom}, estas a la casella d'impostos a la comunitat(<c:out value="${jugador.casella}"/>). </br> Has de pagar un rebut de 700e!</h2> 
+                                </c:if>
+                                   
+                                <c:if test="${jugador.casella == 36}">
+                                   <h2>${jugador.nom}, estas a la casella sort(<c:out value="${jugador.casella}"/>). </br> Felicitats has guanyat 600e!</h2> 
+                                </c:if>
+                                   
+                                <c:if test="${jugador.casella == 38}">
+                                   <h2>${jugador.nom}, estas a la casella d'impostos de luxe(<c:out value="${jugador.casella}"/>). </br> Has de pagar un rebut de 800e!</h2> 
+                                </c:if>
+                           </c:forEach>
+                        </td>  
+                        <!--<td class='interiors'></td> 
                         <td class='interiors'></td>  
                         <td class='interiors'></td> 
-                        <td class='interiors'></td>  
+                        <td class='interiors'></td> -->
                         <td class='interiors'></td> 
                         <td class='interiors'></td> 
-                        <td class='interiors'></td> 
-                        <td class='interiors'></td> 
-                        <td class="vercolor">Impost de Luxe</td>
+                        <td bgcolor='white' class="vercolor">Impost de Luxe</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 38}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach><img src="images/impostos.png" alt=""  ></td>  <!--casella 38 -->              
+				</c:forEach><img src="images/impostos.png" alt=""  ></br> 
+                                <small>800e</small>
+                        </td>  <!--casella 38 -->              
                     </tr>
 
                     <tr>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 11}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td><!--casella 11-->
+				</c:forEach>
+                            <small>12000e</small>
+                        </td><!--casella 11-->
                         <td bgcolor='#cc0066' class="vercolor">Carrer Muntaner</td>
                         <td class='interiors'></td> 
                         <td class='interiors'></td>
@@ -437,41 +475,37 @@
                         <td bgcolor='blue' class="vercolor">Paseig de gracia</td>
                         <td class="vernom"><c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 39}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
-							
-						</div>
-					</c:if>
-				</c:forEach></td>        <!--casella 39 -->        
-                    </tr>
-
-                    <tr>
-                        <td colspan='2' rowspan="2"> <c:forEach items="${partida.jugadores}" var="jugador">
-					<c:if test="${jugador.casella == 10}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            VISITANT LA PRESÓ</td>
+                            <small>21000e</small>
+                        </td>        <!--casella 39 -->        
+                    </tr>
+
+                    <tr>
+                        <td bgcolor='white' colspan='2' rowspan="2"> <c:forEach items="${partida.jugadores}" var="jugador">
+					<c:if test="${jugador.casella == 10}">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
+							
+						</div>
+					</c:if>
+				</c:forEach>
+                            VISITANT LA PRESÓ</td><!--casella 10 -->  
                         <td bgcolor='#99ccff' class="horcolor">Consell de Cent</td>
                         <td bgcolor='#99ccff' class="horcolor">Carrer Urgell</td>
-                        <td class="horcolor">Sort</td>
+                        <td bgcolor='white' class="horcolor">Sort</td>
                         <td bgcolor='#99ccff' class="horcolor">Carrer Girona</td>
-                        <td class="horcolor">Ferrocarrils catalans</td> 
-                        <td class="horcolor">Impostos</td>
+                        <td bgcolor='white' class="horcolor">Ferrocarrils catalans</td> 
+                        <td bgcolor='white' class="horcolor">Impostos</td>
                         <td bgcolor='#660066' class="horcolor">Carrer Roselló</td>
-                        <td class="horcolor">comunitat</td>
+                        <td bgcolor='white' class="horcolor">comunitat</td>
                         <td bgcolor='#660066' class="horcolor">Carrer d'Avinyo</td>
-                        <td id="0" colspan='2' rowspan="2">
+                        <td bgcolor='white' id="0" colspan='2' rowspan="2">
                             <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 0}">
-						<div class="posicion" id="pos0" style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion" id="pos0" style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
@@ -480,99 +514,90 @@
                             SORTIDA</td>
                     </tr>
                     <tr>
-                        <td id="9" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 9}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            
-                        </td>
-                        <td id="8" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+                            <small>11000e</small>
+                        </td><!--casella 9 -->  
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 8}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            
-                        </td>
-                        <td id="7" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+                            <small>10100e</small>
+                        </td><!--casella 8 -->  
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 7}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            <img class="Himg" src="images/Hsort.png" alt=""  ></td>
-                        <td id="6" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+                            <img class="Himg" src="images/Hsort.png" alt=""  >
+                        </td><!--casella 7 -->  
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 6}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            
-                        </td>
-                        <td id="5" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+                            <small>10000e</small>
+                        </td><!--casella 6 -->  
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 5}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            <img class="Himg" src="images/tren.png" alt=""  ></td> 
-                        <td id="4" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+                            <img class="Himg" src="images/tren.png" alt=""  >
+                            <small>20000e</small>
+                        </td> <!--casella 5 -->  
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 4}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                            <img src="images/impostos.png" alt=""  ></td>
+                            <img src="images/impostos.png" alt=""  >
+                        <small>400e</small>
+                        </td><!--casella 4 -->  
                         <td id="3" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
 					<c:if test="${jugador.casella == 3}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
-							
-						</div>
-					</c:if>
-				</c:forEach></td>
-                        <td id="2" class="hornom"><img src="images/chest.jpg" alt=""  > 
-                            <c:forEach items="${partida.jugadores}" var="jugador">
-					<c:if test="${jugador.casella == 2}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
 				</c:forEach>
-                        
-                        </td>
-                        <td id="1" class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
-					<c:if test="${jugador.casella == 1}">
-						<div class="posicion"  style="background-color:${jugador.color}; width:25px;
-  height:25px;
-  border-radius: 100%;">
+                        <small>6000e</small>
+                        </td><!--casella 3-->  
+                        <td class="hornom"><img src="images/chest.jpg" alt=""  > 
+                            <c:forEach items="${partida.jugadores}" var="jugador">
+					<c:if test="${jugador.casella == 2}">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px;  height:25px;  border-radius: 100%;">
 							
 						</div>
 					</c:if>
-				</c:forEach></td>
+				</c:forEach>
+                            <!--casella 2 -->  
+                        </td>
+                        <td class="hornom"> <c:forEach items="${partida.jugadores}" var="jugador">
+					<c:if test="${jugador.casella == 1}">
+						<div class="posicion"  style="background-color:${jugador.color}; width:25px; height:25px;  border-radius: 100%;">
+							
+						</div>
+					</c:if>
+				</c:forEach>
+                        <small>6000e</small>
+                        </td><!--casella 1 -->  
                     </tr>
                 </table> <!-- tancament de la taula que fomra el tauler-->
             
